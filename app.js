@@ -49,23 +49,23 @@ bot.dialog('/', [
         session.userData.insuranceType = results.response.entity;
         session.send("Got it... " + session.userData.name + 
                     " you are looking to claim " + session.userData.insuranceType + ".");
-        session.send("Claim Form completion");
     },
-    function(session) {
+    function(session, results) {
         session.send("Claim Form completion");
         // pull from OLB ?
         session.send("General Information – Must be completed by the Claimant");
         session.send("What is your Client Card No.");
         session.send("What is your Branch Transit No.");
-        session.send("What is your Branch Telephone No.");       
+        session.send("What is your Branch Telephone No.");    
+        builder.Prompts.choice(session, "What kind of insurance are you looking to claim?", ["Mortgage", "Personal Loan", "Royal Credit Line"]);   
     },
     function (session, results) {
         session.userData.type2 = results.response;
-        builder.Prompts.choice(session, "What kind of insurance are you looking to claim?", ["Mortgage", "Personal Loan", "Royal Credit Line"]);
+        builder.Prompts.text(session, "Last name:");
     },
     function (session, results) {
         session.userData.lastname = results.response;
-        builder.Prompts.text(session, "Last name:");
+        
     }
 ]);
 
