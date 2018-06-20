@@ -51,8 +51,7 @@ bot.dialog('/', [
 
         session.send("One moment while I retrieve your information.");
 
-        setTimeout(function(){ session.send("Please verify the following information");}, 3000);
-
+        while (Date.now() < start + 3000) {}
 
         // pulled from OLB 
         // session.send("Please verify the following information");
