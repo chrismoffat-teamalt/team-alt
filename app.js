@@ -38,31 +38,28 @@ bot.set('storage', tableStorage);
 
 bot.dialog('/', [
     function (session) {
-        session.send("Hi! Thanks for taking the time to chat with RBC Insurance.");
-        builder.Prompts.text(session, "Can I have your name?");
+        session.send("Hi John! Thanks for taking the time to chat with RBC Insurance.");
+        builder.Prompts.choice(session, "What line of creditor insurance are you looking to claim?", ["LoanProtecter", "BalanceProtecter", "HomeProtector", "Business Loan Insurance Plan"]);
     },
     function (session, results) {
-        session.userData.name = results.response;
-        builder.Prompts.choice(session, "What kind of insurance are you looking to claim?", ["LoanProtecter", "BalanceProtecter", "HomeProtector", "Business Loan Insurance Plan"]);
+        session.userData.insuranceType = results.response.entity;
+        builder.Prompts.choice(session, "What kind of insurance are you looking to claim?", ["Life", "Critical Illness", "Disability"]);
     },
-    // function (session, results) {
-    //     session.userData.insuranceType = results.response.entity;
-    //     session.send("Got it... " + session.userData.name + 
-    //                 " you are looking to claim " + session.userData.insuranceType + ".");
-    // },
-    function(session) {
-        session.send("Claim Form completion");
-        // pull from OLB ?
-        session.send("General Information – Must be completed by the Claimant");
-        session.send("What is your Client Card No.");
-        session.send("What is your Branch Transit No.");
-        session.send("What is your Branch Telephone No.");    
+    function(session, results) {
+        session.userData.claimType = results.response.entity;
+        session.send("Thanks.");
+
+        // pulled from OLB 
+        session.send("Please verify the following information");
+        session.send("Client Card No.: 5555 5555 5555 5555");
+        session.send("Branch Transit No.: 12345");
+        session.send("Branch Telephone No.: 555 555 5555");    
+
         builder.Prompts.choice(session, "What kind of insurance are you looking to claim?", ["Mortgage", "Personal Loan", "Royal Credit Line"]);   
     },
     function (session, results) {
-        // session.userData.type2 = results.response;
         session.userData.type2 = results.response.entity;
-        builder.Prompts.text(session, "Last name:");
+        builder.Prompts.text(session, "Last name: ");
     },
     function (session, results) {
         session.userData.lastname = results.response;
@@ -86,6 +83,11 @@ bot.dialog('/', [
     },
     function (session, results){
         session.userData.selfemp = results.response.entity;
+        builder.Prompts.choice(session, "Self-employed:", ["Yes", "No"]);
+        // Thanks the process is now submitted and being processing. 
+        // You can view the claim tracker on your online banking dashboard
+        // link to dashboard
+
     }
 
 ]);
