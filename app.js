@@ -45,6 +45,11 @@ bot.dialog('/', [
         session.userData.name = results.response;
         builder.Prompts.choice(session, "What kind of insurance are you looking to claim?", ["LoanProtecter", "BalanceProtecter", "HomeProtector", "Business Loan Insurance Plan"]);
     },
+    // function (session, results) {
+    //     session.userData.insuranceType = results.response.entity;
+    //     session.send("Got it... " + session.userData.name + 
+    //                 " you are looking to claim " + session.userData.insuranceType + ".");
+    // },
     function(session) {
         session.send("Claim Form completion");
         // pull from OLB ?
