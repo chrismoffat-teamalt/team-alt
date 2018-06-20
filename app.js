@@ -36,8 +36,6 @@ var tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azu
 var bot = new builder.UniversalBot(connector);
 bot.set('storage', tableStorage);
 
-// //////// bot.beginDialog(address, 'survey');
-
 bot.dialog('/', [
     function (session) {
         session.send("Hi! Thanks for taking the time to chat with RBC Insurance.");
@@ -51,6 +49,7 @@ bot.dialog('/', [
         session.userData.insuranceType = results.response.entity;
         session.send("Got it... " + session.userData.name + 
                     " you are looking to claim " + session.userData.insuranceType + ".");
+        session.send("Claim Form completion");
     },
     function(session) {
         session.send("Claim Form completion");
@@ -68,7 +67,6 @@ bot.dialog('/', [
         session.userData.lastname = results.response;
         builder.Prompts.text(session, "Last name:");
     }
-
 ]);
 
 //  
