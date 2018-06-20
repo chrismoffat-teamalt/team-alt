@@ -45,12 +45,12 @@ bot.dialog('/', [
         session.userData.name = results.response;
         builder.Prompts.choice(session, "What kind of insurance are you looking to claim?", ["LoanProtecter", "BalanceProtecter", "HomeProtector", "Business Loan Insurance Plan"]);
     },
-    function (session, results) {
-        session.userData.insuranceType = results.response.entity;
-        session.send("Got it... " + session.userData.name + 
-                    " you are looking to claim " + session.userData.insuranceType + ".");
-    },
-    function(session, results) {
+    // function (session, results) {
+    //     session.userData.insuranceType = results.response.entity;
+    //     session.send("Got it... " + session.userData.name + 
+    //                 " you are looking to claim " + session.userData.insuranceType + ".");
+    // },
+    function(session) {
         session.send("Claim Form completion");
         // pull from OLB ?
         session.send("General Information – Must be completed by the Claimant");
@@ -65,7 +65,11 @@ bot.dialog('/', [
     },
     function (session, results) {
         session.userData.lastname = results.response;
+<<<<<<< HEAD
         builder.Prompts.text(session, "Occupation:");
+=======
+        builder.Prompts.text(session, "Last name:");
+>>>>>>> d26e123dc21c6727b9c4ba3cfaafb57c05009d36
     },
     function (session, results) {
         session.userData.occupation= results.response;
@@ -88,7 +92,10 @@ bot.dialog('/', [
     }
     
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d26e123dc21c6727b9c4ba3cfaafb57c05009d36
 ]);
 
 //  
