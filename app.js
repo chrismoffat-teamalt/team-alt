@@ -65,31 +65,30 @@ bot.dialog('/', [
     },
     function (session, results) {
         session.userData.lastname = results.response;
-<<<<<<< HEAD
-        builder.Prompts.text(session, "Last name:");
+        builder.Prompts.text(session, "Occupation:");
     },
     function (session, results) {
-        session.userData.job = results.response;
+        session.userData.occupation= results.response;
         builder.Prompts.text(session, "Most recent job:");
     },
     function (session, results) {
-        session.userData.job = results.response;
+        session.userData.mostrecentjob = results.response;
         builder.Prompts.text(session, "Employer:");
     },
     function (session, results) {
-        session.userData.employercontact = results.response;
+        session.userData.employer = results.response;
         builder.Prompts.text(session, "Employer contact info:");
     },
     function (session, results) {
-        session.userData.job = results.response;
+        session.userData.empcontactinfo= results.response;
         builder.Prompts.choice(session, "Self-employed (y/n):", ["Yes", "No"]);
+    },
+    function (session, result){
+        session.userData.selfemp = results.response;
     }
     
 
-=======
-        
-    }
->>>>>>> 3d270922e261c6e9f8daf8e000f4c779206e3aa5
+
 ]);
 
 //  
