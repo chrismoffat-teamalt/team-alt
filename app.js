@@ -45,12 +45,7 @@ bot.dialog('/', [
         session.userData.name = results.response;
         builder.Prompts.choice(session, "What kind of insurance are you looking to claim?", ["LoanProtecter", "BalanceProtecter", "HomeProtector", "Business Loan Insurance Plan"]);
     },
-    function (session, results) {
-        session.userData.insuranceType = results.response.entity;
-        session.send("Got it... " + session.userData.name + 
-                    " you are looking to claim " + session.userData.insuranceType + ".");
-    },
-    function(session, results) {
+    function(session) {
         session.send("Claim Form completion");
         // pull from OLB ?
         session.send("General Information – Must be completed by the Claimant");
@@ -65,7 +60,6 @@ bot.dialog('/', [
     },
     function (session, results) {
         session.userData.lastname = results.response;
-<<<<<<< HEAD
         builder.Prompts.text(session, "Last name:");
     },
     function (session, results) {
@@ -86,10 +80,6 @@ bot.dialog('/', [
     }
     
 
-=======
-        
-    }
->>>>>>> 3d270922e261c6e9f8daf8e000f4c779206e3aa5
 ]);
 
 //  
