@@ -69,7 +69,8 @@ bot.dialog('/', [
         builder.Prompts.text(session, "Last name:");
     }
 
-]
+]);
+
 //  
 
 // Disability Claimant Information – Must be completed by Claimant
@@ -107,7 +108,6 @@ bot.dialog('/', [
 // City or Town
 
 // Province
-]);
 
 
 
