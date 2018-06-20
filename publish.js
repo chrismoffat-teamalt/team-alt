@@ -4,9 +4,9 @@ var fs = require('fs');
 var request = require('request');
 
 var rootFolder = path.resolve('.');
-var zipPath = path.resolve(rootFolder, '../testbot-teamalt.zip');
-var kuduApi = 'https://testbot-teamalt.scm.azurewebsites.net/api/zip/site/wwwroot';
-var userName = '$testbot-teamalt';
+var zipPath = path.resolve(rootFolder, '../chatBot-teamalt.zip');
+var kuduApi = 'https://chatBot-teamalt.scm.azurewebsites.net/api/zip/site/wwwroot';
+var userName = '$chatBot-teamalt';
 var password = 'LXRXQpvjpXl5r2wruKmbxuwR0s57iiWYbsiQdPmzdtpuqfvAb8tbZYKKK50z';
 
 function uploadZip(callback) {
@@ -45,8 +45,8 @@ function publish(callback) {
 
 publish(function(err) {
   if (!err) {
-    console.log('testbot-teamalt publish');
+    console.log('chatBot-teamalt publish');
   } else {
-    console.error('failed to publish testbot-teamalt', err);
+    console.error('failed to publish chatBot-teamalt', err);
   }
 });
