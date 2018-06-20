@@ -49,11 +49,16 @@ bot.dialog('/', [
         session.userData.claimType = results.response.entity;
         session.send("Thanks.");
 
+        session.send("One moment while I retrieve your information.");
+
+        setTimeout(function(){ session.send("Please verify the following information");}, 3000);
+
+
         // pulled from OLB 
-        session.send("Please verify the following information");
-        session.send("Client Card No.: 5555 5555 5555 5555" +
-                        " \r\n Branch Transit No.: 12345");
-        session.send("Branch Telephone No.: 555 555 5555");    
+        // session.send("Please verify the following information");
+        session.send("Client Card No: 5555 5555 5555 5555" +
+                        " \r\n Branch Transit No: 12345" +
+                        " \r\n Branch Telephone No: 555 555 5555");    
 
         builder.Prompts.choice(session, "What kind of insurance are you looking to claim?", ["Mortgage", "Personal Loan", "Royal Credit Line"]);   
     },
