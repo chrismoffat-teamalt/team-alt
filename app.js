@@ -51,7 +51,16 @@ bot.dialog('/', [
         session.userData.insuranceType = results.response.entity;
         session.send("Got it... " + session.userData.name + 
                     " you are looking to claim " + session.userData.insuranceType + ".");
+    },
+    function(session, results) {
+        session.send("Claim Form completion");
+        // pull from OLB ?
+        session.send("General Information – Must be completed by the Claimant");
+        session.send("What is your Client Card No.");
+        session.send("What is your Branch Transit No.");
+        session.send("What is your Branch Telephone No.");       
     }
+
 ]);
 
 
