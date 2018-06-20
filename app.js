@@ -67,15 +67,30 @@ bot.dialog('/', [
     function (session, results) {
         session.userData.lastname = results.response;
         builder.Prompts.text(session, "Last name:");
+    },
+    function (session, results) {
+        session.userData.job = results.response;
+        builder.Prompts.text(session, "Most recent job:");
+    },
+    function (session, results) {
+        session.userData.job = results.response;
+        builder.Prompts.text(session, "Employer:");
+    },
+    function (session, results) {
+        session.userData.employercontact = results.response;
+        builder.Prompts.text(session, "Employer contact info:");
+    },
+    function (session, results) {
+        session.userData.job = results.response;
+        builder.Prompts.choice(session, "Self-employed (y/n):", ["Yes", "No"]);
     }
+    
 
 ]);
 
 //  
 
 // Disability Claimant Information – Must be completed by Claimant
-
-// What is your First Name
 
 // What is your Initial
 
@@ -84,7 +99,6 @@ bot.dialog('/', [
 // What is your Maiden Name (if applicable)  
 
  
-
 // Tell us about your most recent job:
 
 // What is your occupation
