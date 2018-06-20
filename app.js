@@ -60,7 +60,8 @@ bot.dialog('/', [
         builder.Prompts.choice(session, "What kind of insurance are you looking to claim?", ["Mortgage", "Personal Loan", "Royal Credit Line"]);   
     },
     function (session, results) {
-        session.userData.type2 = results.response;
+        // session.userData.type2 = results.response;
+        session.userData.type2 = results.response.entity;
         builder.Prompts.text(session, "Last name:");
     },
     function (session, results) {
@@ -80,11 +81,11 @@ bot.dialog('/', [
         builder.Prompts.text(session, "Employer contact info:");
     },
     function (session, results) {
-        session.userData.empcontactinfo= results.response;
-        builder.Prompts.choice(session, "Self-employed (y/n):", ["Yes", "No"]);
+        session.userData.empcontactinfo = results.response;
+        builder.Prompts.choice(session, "Self-employed:", ["Yes", "No"]);
     },
     function (session, result){
-        session.userData.selfemp = results.response;
+        session.userData.selfemp = results.response.entity;
     }
     
 
