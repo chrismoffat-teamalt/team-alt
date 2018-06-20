@@ -65,11 +65,7 @@ bot.dialog('/', [
     },
     function (session, results) {
         session.userData.lastname = results.response;
-<<<<<<< HEAD
         builder.Prompts.text(session, "Occupation:");
-=======
-        builder.Prompts.text(session, "Last name:");
->>>>>>> d26e123dc21c6727b9c4ba3cfaafb57c05009d36
     },
     function (session, results) {
         session.userData.occupation= results.response;
@@ -92,10 +88,6 @@ bot.dialog('/', [
     }
     
 
-<<<<<<< HEAD
-
-=======
->>>>>>> d26e123dc21c6727b9c4ba3cfaafb57c05009d36
 ]);
 
 //  
