@@ -51,8 +51,8 @@ bot.dialog('/', [
 
         // pulled from OLB 
         session.send("Please verify the following information");
-        session.send("Client Card No.: 5555 5555 5555 5555");
-        session.send("Branch Transit No.: 12345");
+        session.send("Client Card No.: 5555 5555 5555 5555" +
+                        " Branch Transit No.: 12345");
         session.send("Branch Telephone No.: 555 555 5555");    
 
         builder.Prompts.choice(session, "What kind of insurance are you looking to claim?", ["Mortgage", "Personal Loan", "Royal Credit Line"]);   
