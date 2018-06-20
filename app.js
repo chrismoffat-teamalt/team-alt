@@ -36,9 +36,11 @@ var tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azu
 var bot = new builder.UniversalBot(connector);
 bot.set('storage', tableStorage);
 
+
 bot.dialog('/', [
     function (session) {
-        builder.Prompts.text(session, "Hello... What's your name?");
+        builder.Prompts.text(session, "Hi! Thanks for taking the time to chat with RBC Insurance.");
+        builder.Prompts.text(session, "Can I have your name?");
     },
     function (session, results) {
         session.userData.name = results.response;
