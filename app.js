@@ -52,15 +52,61 @@ bot.dialog('/', [
         session.send("Got it... " + session.userData.name + 
                     " you are looking to claim " + session.userData.insuranceType + ".");
     },
-    function(session, results) {
+    function(session) {
         session.send("Claim Form completion");
         // pull from OLB ?
         session.send("General Information – Must be completed by the Claimant");
         session.send("What is your Client Card No.");
         session.send("What is your Branch Transit No.");
         session.send("What is your Branch Telephone No.");       
+    },
+    function (session, results) {
+        session.userData.type2 = results.response;
+        builder.Prompts.choice(session, "What kind of insurance are you looking to claim?", ["Mortgage", "Personal Loan", "Royal Credit Line"]);
+    },
+    function (session, results) {
+        session.userData.lastname = results.response;
+        builder.Prompts.text(session, "Last name:");
     }
 
+]
+//  
+
+// Disability Claimant Information – Must be completed by Claimant
+
+// What is your First Name
+
+// What is your Initial
+
+// What is your Last Name
+
+// What is your Maiden Name (if applicable)  
+
+ 
+
+// Tell us about your most recent job:
+
+// What is your occupation
+
+// Are you self-employed  yes/no
+
+// Are you seasonally employed yes/no
+
+ 
+
+// What is the name of your employer?
+
+// When did your start at your job?  Month/Day/Year
+
+// What is name of your supervisor (who can we contact to verify this information)
+
+// What is your employer’s address?
+
+// Street and number
+
+// City or Town
+
+// Province
 ]);
 
 
