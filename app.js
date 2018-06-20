@@ -36,8 +36,6 @@ var tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azu
 var bot = new builder.UniversalBot(connector);
 bot.set('storage', tableStorage);
 
-// //////// bot.beginDialog(address, 'survey');
-
 bot.dialog('/', [
     function (session) {
         session.send("Hi! Thanks for taking the time to chat with RBC Insurance.");
@@ -52,20 +50,22 @@ bot.dialog('/', [
         session.send("Got it... " + session.userData.name + 
                     " you are looking to claim " + session.userData.insuranceType + ".");
     },
-    function(session) {
+    function(session, results) {
         session.send("Claim Form completion");
         // pull from OLB ?
         session.send("General Information – Must be completed by the Claimant");
         session.send("What is your Client Card No.");
         session.send("What is your Branch Transit No.");
-        session.send("What is your Branch Telephone No.");       
+        session.send("What is your Branch Telephone No.");    
+        builder.Prompts.choice(session, "What kind of insurance are you looking to claim?", ["Mortgage", "Personal Loan", "Royal Credit Line"]);   
     },
     function (session, results) {
         session.userData.type2 = results.response;
-        builder.Prompts.choice(session, "What kind of insurance are you looking to claim?", ["Mortgage", "Personal Loan", "Royal Credit Line"]);
+        builder.Prompts.text(session, "Last name:");
     },
     function (session, results) {
         session.userData.lastname = results.response;
+<<<<<<< HEAD
         builder.Prompts.text(session, "Last name:");
     },
     function (session, results) {
@@ -86,6 +86,10 @@ bot.dialog('/', [
     }
     
 
+=======
+        
+    }
+>>>>>>> 3d270922e261c6e9f8daf8e000f4c779206e3aa5
 ]);
 
 //  
