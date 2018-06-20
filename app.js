@@ -43,16 +43,31 @@ bot.dialog('/', [
     },
     function (session, results) {
         session.userData.name = results.response;
-        builder.Prompts.number(session, "Hi " + results.response + ", What kind of insurance are you claiming?"); 
+        builder.Prompts.choice(session, "What kind of insurance are you looking to claim?", ["LoanProtecter", "BalanceProtecter", "HomeProtector", "Business Loan Insurance Plan"]);
     },
+    // function (session, results) {
+    //     session.userData.insuranceType = results.response.entity;
+    //     builder.Prompts.number(session, "Great! " + results.response + ", What kind of insurance are you looking to claim?"); 
+    // },
+    // function (session, results) {
+    //     session.userData.coding = results.response;
+    //     builder.Prompts.choice(session, "What language do you code Node using?", ["JavaScript", "CoffeeScript", "TypeScript"]);
+    // },
     function (session, results) {
-        session.userData.coding = results.response;
-        builder.Prompts.choice(session, "What language do you code Node using?", ["JavaScript", "CoffeeScript", "TypeScript"]);
-    },
-    function (session, results) {
-        session.userData.language = results.response.entity;
+        session.userData.insuranceType = results.response.entity;
         session.send("Got it... " + session.userData.name + 
-                    " you've been programming for " + session.userData.coding + 
-                    " years and use " + session.userData.language + ".");
+                    " you are looking to claim " + session.userData.insuranceType + ".");
     }
 ]);
+
+
+
+
+// function (session, results) {
+//     session.userData.insuranceType = results.response;
+//     builder.Prompts.number(session, "Great! " + results.response + ", What kind of insurance are you looking to claim?"); 
+// },
+// function (session, results) {
+//     session.userData.coding = results.response;
+//     builder.Prompts.choice(session, "What language do you code Node using?", ["JavaScript", "CoffeeScript", "TypeScript"]);
+// },
