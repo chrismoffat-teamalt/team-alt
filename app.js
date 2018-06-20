@@ -84,10 +84,9 @@ bot.dialog('/', [
         session.userData.empcontactinfo = results.response;
         builder.Prompts.choice(session, "Self-employed:", ["Yes", "No"]);
     },
-    function (session, result){
+    function (session, results){
         session.userData.selfemp = results.response.entity;
     }
-    
 
 ]);
 
