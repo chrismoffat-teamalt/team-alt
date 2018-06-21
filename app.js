@@ -38,8 +38,10 @@ bot.set('storage', tableStorage);
 
 bot.dialog('/', [
     function (session) {
-        session.send("Hello, Team ALT! Thanks for taking the time to chat with RBC Creditor Insurance.");
-        builder.Prompts.choice(session, "What line of insurance are you looking to claim?", ["LoanProtecter", "BalanceProtecter", "HomeProtector", "Business Loan Insurance Plan"]);
+        session.send("Hello, Team ALT!" +
+                    " \r\n " + 
+                    "Thanks for taking the time to chat with RBC Creditor Insurance.");
+                    builder.Prompts.choice(session, "What line of insurance are you looking to claim?", ["LoanProtecter", "BalanceProtecter", "HomeProtector", "Business Loan Insurance Plan"]);
     },
     function (session, results) {
         session.userData.insuranceType = results.response.entity;
@@ -61,16 +63,16 @@ bot.dialog('/', [
 
             // This would be pulled from OLB database/datalake
             session.send("Please verify the following..." + 
-            " \r\n " + 
-            " \r\n First Name: Team" +
-            " \r\n Last Name: ALT" +
-            " \r\n Client Card No: 5555 5555 5555 5555" +
-            " \r\n Occupation: RBC" +
-            " \r\n Job Title: Cloud Innovation Challenge Winner" +
-            " \r\n Employer Contact No: 555 555 5555" +
-            " \r\n Address: 6880 Financial Drive, Mississauga, On" +
-            " \r\n Branch Telephone No: 555 555 5555" +  
-            " \r\n Branch Transit No: 12345");
+                        " \r\n " + 
+                        " \r\n First Name: Team" +
+                        " \r\n Last Name: ALT" +
+                        " \r\n Client Card No: 5555 5555 5555 5555" +
+                        " \r\n Occupation: RBC" +
+                        " \r\n Job Title: Cloud Innovation Challenge Winner" +
+                        " \r\n Employer Contact No: 555 555 5555" +
+                        " \r\n Address: 6880 Financial Drive, Mississauga, On" +
+                        " \r\n Branch Telephone No: 555 555 5555" +  
+                        " \r\n Branch Transit No: 12345");
 
             builder.Prompts.choice(session, "Is this correct?", ["Yes", "No"]);
 
