@@ -36,10 +36,15 @@ var tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azu
 var bot = new builder.UniversalBot(connector);
 bot.set('storage', tableStorage);
 
-
 // Send welcome when conversation with bot is started, by initiating the root dialog
-bot.on('startConvo', function (message) {
-    session.send("OIOIOOIOIOI ");
+bot.on('conversationUpdate', function(messages){
+	if (message.membersAdded) {
+        const hello = new builder.Message()
+            .address(message.address)
+            .text("Hi, I am Bot. I can answer your question");
+        bot.send(hello);
+        bot.beginDialog(message.address, '*:/');
+    }
 });
 
 bot.dialog('/', [
