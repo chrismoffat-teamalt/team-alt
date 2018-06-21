@@ -39,13 +39,7 @@ bot.set('storage', tableStorage);
 
 // Send welcome when conversation with bot is started, by initiating the root dialog
 bot.on('startConvo', function (message) {
-    if (message.membersAdded) {
-        message.membersAdded.forEach(function (identity) {
-            if (identity.id === message.address.bot.id) {
-                bot.beginDialog(message.address, '/');
-            }
-        });
-    }
+    session.send("OIOIOOIOIOI ");
 });
 
 bot.dialog('/', [
