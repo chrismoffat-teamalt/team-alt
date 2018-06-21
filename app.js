@@ -54,11 +54,12 @@ bot.dialog('/', [
         session.userData.selfemp = results.response.entity;
 
         session.send("Thanks for verifying your identity through RBC Online Banking."  +
-        " \r\n One moment while I retrieve your information.");
+                        " \r\n " + 
+                        " \r\n One moment while I retrieve your information.");
 
         // This would be pulled from OLB database/datalake
-
         session.send("Please verify the following..." + 
+                " \r\n " + 
                 " \r\n First Name: Team" +
                 " \r\n Last Name: ALT" +
                 " \r\n Client Card No: 5555 5555 5555 5555" +
@@ -70,76 +71,17 @@ bot.dialog('/', [
                 " \r\n Branch Transit No: 12345");
 
         builder.Prompts.choice(session, "Is this correct?", ["Yes", "No"]);
-
-        // Thanks the process is now submitted and being processing. 
-        // You can view the claim tracker on your online banking dashboard
-        // link to dashboard
     },
     function (session, results){
         session.userData.selfemp = results.response.entity;
 
         session.send("Thanks for verifying your information."  +
-        " \r\n The application is being processed." + 
-        " \r\n You can view the progress of your applicatin in myClaim Tracker.");
+                    " \r\n " + 
+                    " \r\n The application is being processed." + 
+                    " \r\n You can view the progress of your applicatin in the myClaim Tracker.");
 
         // Thanks the process is now submitted and being processing. 
         // You can view the claim tracker on your online banking dashboard
         // link to dashboard
     }
-
 ]);
-
-//  
-
-// Disability Claimant Information – Must be completed by Claimant
-
-// What is your Initial
-
-// What is your Last Name
-
-// What is your Maiden Name (if applicable)  
-
- 
-// Tell us about your most recent job:
-
-// What is your occupation
-
-// Are you self-employed  yes/no
-
-// Are you seasonally employed yes/no
-
- 
-
-// What is the name of your employer?
-
-// When did your start at your job?  Month/Day/Year
-
-// What is name of your supervisor (who can we contact to verify this information)
-
-// What is your employer’s address?
-
-// Street and number
-
-// City or Town
-
-// Province
-
-
-
-
-// function (session, results) {
-//     session.userData.insuranceType = results.response;
-//     builder.Prompts.number(session, "Great! " + results.response + ", What kind of insurance are you looking to claim?"); 
-// },
-// function (session, results) {
-//     session.userData.coding = results.response;
-//     builder.Prompts.choice(session, "What language do you code Node using?", ["JavaScript", "CoffeeScript", "TypeScript"]);
-// },
-    // function (session, results) {
-    //     session.userData.insuranceType = results.response.entity;
-    //     builder.Prompts.number(session, "Great! " + results.response + ", What kind of insurance are you looking to claim?"); 
-    // },
-    // function (session, results) {
-    //     session.userData.coding = results.response;
-    //     builder.Prompts.choice(session, "What language do you code Node using?", ["JavaScript", "CoffeeScript", "TypeScript"]);
-    // },
