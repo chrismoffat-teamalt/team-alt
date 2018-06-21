@@ -58,22 +58,22 @@ bot.dialog('/', [
 
         session.send("Thank you for verifying your identity through RBC Online Banking."  +
                         " \r\n " + 
-                        " \r\n One moment while I retrieve your information.");
+                        " \r\n One moment while I retrieve your information...");
 
         setTimeout(function(){ 
 
             // This would be pulled from OLB database/datalake
-            session.send("Please verify the following..." + 
+            session.send("Please verify the following:" + 
                         " \r\n " + 
                         " \r\n First Name:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "Team" +
                         " \r\n Last Name:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "ALT" +
-                        " \r\n Client Card No:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "5555 5555 5555 5555" +
+                        " \r\n Client Card No:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "451922655870296" +
                         " \r\n Occupation:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "RBC" +
                         " \r\n Job Title:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "Cloud Innovation Challenge Winner" +
-                        " \r\n Employer Contact No: 555 555 5555" +
+                        " \r\n Employer Contact No: 416 991 4516" +
                         " \r\n Address:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "6880 Financial Drive, Mississauga, On" +
-                        " \r\n Branch Telephone No: 555 555 5555" +  
-                        " \r\n Branch Transit No:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "12345");
+                        " \r\n Branch Telephone No: 905 372 1853" +  
+                        " \r\n Branch Transit No:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "99209");
 
             builder.Prompts.choice(session, "Is this correct?", ["Yes", "No"]);
 
