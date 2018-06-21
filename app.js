@@ -36,14 +36,22 @@ var tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azu
 var bot = new builder.UniversalBot(connector);
 bot.set('storage', tableStorage);
 
-// Send welcome when conversation with bot is started, by initiating the root dialog
-bot.on('conversationUpdate', function(message){
-        const hello = new builder.Message()
-            .address(message.address)
-            .text("Hi, I am Bot. I can answer your question");
-        bot.send(hello);
-        bot.beginDialog(message.address, '*:/');
+// Add first run dialog
+bot.dialog('firstRun', function (session) {    
+    session.userData.firstRun = true;
+    session.send("Hello...").endDialog();
+}).triggerAction({
+    onFindAction: function (context, callback) {
+        // Only trigger if we've never seen user before
+        if (!context.userData.firstRun) {
+            // Return a score of 1.1 to ensure the first run dialog wins
+            callback(null, 1.1);
+        } else {
+            callback(null, 0.0);
+        }
+    }
 });
+
 
 bot.dialog('/', [
     function (session) {
