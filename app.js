@@ -48,11 +48,6 @@ bot.dialog('/', [
         session.userData.insuranceType = results.response.entity;
         builder.Prompts.choice(session, "Insurance type?", ["Life", "Critical Illness", "Disability"]);
     },
-    function(session, results) {
-        session.userData.claimType = results.response.entity;
-        builder.Prompts.choice(session, "Service line?", ["Mortgage", "Personal Loan", "Royal Credit Line"]);   
-    
-    },
     function (session, results){
         session.userData.selfemp = results.response.entity;
 
