@@ -36,26 +36,9 @@ var tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azu
 var bot = new builder.UniversalBot(connector);
 bot.set('storage', tableStorage);
 
-// Add first run dialog
-bot.dialog('firstRun', function (session) {    
-    session.userData.firstRun = true;
-    session.send("Hello...").endDialog();
-}).triggerAction({
-    onFindAction: function (context, callback) {
-        // Only trigger if we've never seen user before
-        if (!context.userData.firstRun) {
-            // Return a score of 1.1 to ensure the first run dialog wins
-            callback(null, 1.1);
-        } else {
-            callback(null, 0.0);
-        }
-    }
-});
-
-
 bot.dialog('/', [
     function (session) {
-        session.send("Hello!!, Team ALT! Thanks for taking the time to chat with RBC Creditor Insurance.");
+        session.send("Hello, Team ALT! Thanks for taking the time to chat with RBC Creditor Insurance.");
         builder.Prompts.choice(session, "What line of insurance are you looking to claim?", ["LoanProtecter", "BalanceProtecter", "HomeProtector", "Business Loan Insurance Plan"]);
     },
     function (session, results) {
