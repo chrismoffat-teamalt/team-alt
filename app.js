@@ -73,7 +73,7 @@ bot.dialog('/', [
                         " \r\n Employer Contact No: 555 555 5555" +
                         " \r\n Address:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "6880 Financial Drive, Mississauga, On" +
                         " \r\n Branch Telephone No: 555 555 5555" +  
-                        " \r\n Branch Transit No:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "12345");
+                        " \r\n Branch Transit No:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "12345");
 
             builder.Prompts.choice(session, "Is this correct?", ["Yes", "No"]);
 
