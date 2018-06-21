@@ -48,25 +48,27 @@ bot.dialog('/', [
     function(session, results) {
         session.userData.claimType = results.response.entity;
         builder.Prompts.choice(session, "Service line?", ["Mortgage", "Personal Loan", "Royal Credit Line"]);   
-        
-        session.send("Thanks for verifying your identity through RBC Online Bankking."  +
-                        " \r\n One moment while I retrieve your information.");
+    
+    },
+    function (session, results){
+        session.userData.selfemp = results.response.entity;
+
+        session.send("Thanks for verifying your identity through RBC Online Banking."  +
+        " \r\n One moment while I retrieve your information.");
 
         // This would be pulled from OLB database/datalake
 
         session.send("Please verify the following..." + 
-                        " \r\n First Name: Team" +
-                        " \r\n Last Name: ALT" +
-                        " \r\n Client Card No: 5555 5555 5555 5555" +
-                        " \r\n Occupation: RBC" +
-                        " \r\n Job Title: Cloud Innovation Challenge Winner" +
-                        " \r\n Employer Contact No: 555 555 5555" +
-                        " \r\n Address: 6880 Financial Drive, Mississauga, On" +
-                        " \r\n Branch Telephone No: 555 555 5555" +  
-                        " \r\n Branch Transit No: 12345");
-    },
-    function (session, results){
-        session.userData.selfemp = results.response.entity;
+                " \r\n First Name: Team" +
+                " \r\n Last Name: ALT" +
+                " \r\n Client Card No: 5555 5555 5555 5555" +
+                " \r\n Occupation: RBC" +
+                " \r\n Job Title: Cloud Innovation Challenge Winner" +
+                " \r\n Employer Contact No: 555 555 5555" +
+                " \r\n Address: 6880 Financial Drive, Mississauga, On" +
+                " \r\n Branch Telephone No: 555 555 5555" +  
+                " \r\n Branch Transit No: 12345");
+
         builder.Prompts.choice(session, "Is this correct?", ["Yes", "No"]);
 
         // Thanks the process is now submitted and being processing. 
