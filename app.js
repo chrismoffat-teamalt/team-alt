@@ -50,7 +50,7 @@ bot.on('startConvo', function (message) {
 
 bot.dialog('/', [
     function (session) {
-        session.send("Hello, Team ALT! Thanks for taking the time to chat with RBC Creditor Insurance.");
+        session.send("Hello!!, Team ALT! Thanks for taking the time to chat with RBC Creditor Insurance.");
         builder.Prompts.choice(session, "What line of insurance are you looking to claim?", ["LoanProtecter", "BalanceProtecter", "HomeProtector", "Business Loan Insurance Plan"]);
     },
     function (session, results) {
