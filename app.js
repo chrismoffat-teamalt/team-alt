@@ -65,15 +65,15 @@ bot.dialog('/', [
             // This would be pulled from OLB database/datalake
             session.send("Please verify the following..." + 
                         " \r\n " + 
-                        " \r\n First Name:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "Team" +
-                        " \r\n Last Name:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "ALT" +
-                        " \r\n Client Card No:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "5555 5555 5555 5555" +
+                        " \r\n First Name:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "Team" +
+                        " \r\n Last Name:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "ALT" +
+                        " \r\n Client Card No:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "5555 5555 5555 5555" +
                         " \r\n Occupation:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "RBC" +
-                        " \r\n Job Title:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "Cloud Innovation Challenge Winner" +
+                        " \r\n Job Title:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "Cloud Innovation Challenge Winner" +
                         " \r\n Employer Contact No: 555 555 5555" +
-                        " \r\n Address:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "6880 Financial Drive, Mississauga, On" +
+                        " \r\n Address:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "6880 Financial Drive, Mississauga, On" +
                         " \r\n Branch Telephone No: 555 555 5555" +  
-                        " \r\n Branch Transit No:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "12345");
+                        " \r\n Branch Transit No:" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "12345");
 
             builder.Prompts.choice(session, "Is this correct?", ["Yes", "No"]);
 
