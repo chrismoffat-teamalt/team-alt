@@ -38,60 +38,51 @@ bot.set('storage', tableStorage);
 
 bot.dialog('/', [
     function (session) {
-        session.send("Hi John! Thanks for taking the time to chat with RBC Insurance.");
+        session.send("Hi Team ALT! Thanks for taking the time to chat with RBC Insurance.");
         builder.Prompts.choice(session, "What line of creditor insurance are you looking to claim?", ["LoanProtecter", "BalanceProtecter", "HomeProtector", "Business Loan Insurance Plan"]);
     },
     function (session, results) {
         session.userData.insuranceType = results.response.entity;
-        builder.Prompts.choice(session, "What kind of insurance are you looking to claim?", ["Life", "Critical Illness", "Disability"]);
+        builder.Prompts.choice(session, "Insurance type?", ["Life", "Critical Illness", "Disability"]);
     },
     function(session, results) {
         session.userData.claimType = results.response.entity;
-        session.send("Thanks.");
+        builder.Prompts.choice(session, "Service line?", ["Mortgage", "Personal Loan", "Royal Credit Line"]);   
+        
+        session.send("Thanks for verifying your identity through RBC Online Bankking."  +
+                        " \r\n One moment while I retrieve your information.");
 
-        session.send("One moment while I retrieve your information.");
+        // This would be pulled from OLB database/datalake
 
-        while (Date.now() < start + 3000) {}
-
-        // pulled from OLB 
-        // session.send("Please verify the following information");
-        session.send("Client Card No: 5555 5555 5555 5555" +
-                        " \r\n Branch Transit No: 12345" +
-                        " \r\n Branch Telephone No: 555 555 5555");    
-
-        builder.Prompts.choice(session, "What kind of insurance are you looking to claim?", ["Mortgage", "Personal Loan", "Royal Credit Line"]);   
-    },
-    function (session, results) {
-        session.userData.type2 = results.response.entity;
-        builder.Prompts.text(session, "Last name: ");
-    },
-    function (session, results) {
-        session.userData.lastname = results.response;
-        builder.Prompts.text(session, "Occupation:");
-    },
-    function (session, results) {
-        session.userData.occupation= results.response;
-        builder.Prompts.text(session, "Most recent job:");
-    },
-    function (session, results) {
-        session.userData.mostrecentjob = results.response;
-        builder.Prompts.text(session, "Employer:");
-    },
-    function (session, results) {
-        session.userData.employer = results.response;
-        builder.Prompts.text(session, "Employer contact info:");
-    },
-    function (session, results) {
-        session.userData.empcontactinfo = results.response;
-        builder.Prompts.choice(session, "Self-employed:", ["Yes", "No"]);
+        session.send("Please verify the following..." + 
+                        " \r\n First Name: Team" +
+                        " \r\n Last Name: ALT" +
+                        " \r\n Client Card No: 5555 5555 5555 5555" +
+                        " \r\n Occupation: RBC" +
+                        " \r\n Job Title: Cloud Innovation Challenge Winner" +
+                        " \r\n Employer Contact No: 555 555 5555" +
+                        " \r\n Address: 6880 Financial Drive, Mississauga, On" +
+                        " \r\n Branch Telephone No: 555 555 5555" +  
+                        " \r\n Branch Transit No: 12345");
     },
     function (session, results){
         session.userData.selfemp = results.response.entity;
-        builder.Prompts.choice(session, "Self-employed:", ["Yes", "No"]);
+        builder.Prompts.choice(session, "Is this correct?", ["Yes", "No"]);
+
         // Thanks the process is now submitted and being processing. 
         // You can view the claim tracker on your online banking dashboard
         // link to dashboard
+    },
+    function (session, results){
+        session.userData.selfemp = results.response.entity;
 
+        session.send("Thanks for verifying your information."  +
+        " \r\n The application is being processed." + 
+        " \r\n You can view the progress of your applicatin in myClaim Tracker.");
+
+        // Thanks the process is now submitted and being processing. 
+        // You can view the claim tracker on your online banking dashboard
+        // link to dashboard
     }
 
 ]);
