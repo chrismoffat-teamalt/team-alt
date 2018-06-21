@@ -36,9 +36,21 @@ var tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azu
 var bot = new builder.UniversalBot(connector);
 bot.set('storage', tableStorage);
 
+
+// Send welcome when conversation with bot is started, by initiating the root dialog
+bot.on('startConvo', function (message) {
+    if (message.membersAdded) {
+        message.membersAdded.forEach(function (identity) {
+            if (identity.id === message.address.bot.id) {
+                bot.beginDialog(message.address, '/');
+            }
+        });
+    }
+});
+
 bot.dialog('/', [
     function (session) {
-        session.send("Hi Team ALT! Thanks for taking the time to chat with RBC Creditor Insurance.");
+        session.send("Hello, Team ALT! Thanks for taking the time to chat with RBC Creditor Insurance.");
         builder.Prompts.choice(session, "What line of insurance are you looking to claim?", ["LoanProtecter", "BalanceProtecter", "HomeProtector", "Business Loan Insurance Plan"]);
     },
     function (session, results) {
