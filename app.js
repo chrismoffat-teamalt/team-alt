@@ -38,8 +38,8 @@ bot.set('storage', tableStorage);
 
 bot.dialog('/', [
     function (session) {
-        session.send("Hi Team ALT! Thanks for taking the time to chat with RBC Insurance.");
-        builder.Prompts.choice(session, "What line of creditor insurance are you looking to claim?", ["LoanProtecter", "BalanceProtecter", "HomeProtector", "Business Loan Insurance Plan"]);
+        session.send("Hi Team ALT! Thanks for taking the time to chat with RBC Creditor Insurance.");
+        builder.Prompts.choice(session, "What line of insurance are you looking to claim?", ["LoanProtecter", "BalanceProtecter", "HomeProtector", "Business Loan Insurance Plan"]);
     },
     function (session, results) {
         session.userData.insuranceType = results.response.entity;
@@ -81,7 +81,7 @@ bot.dialog('/', [
 
         session.send("Thank you for verifying your information."  +
                     " \r\n " + 
-                    " \r\n Your application is being processed. You can now view the progress in the new myClaim Tracker." +
+                    " \r\n Your application has been started and is being processed. You can now view the progress in the new myClaim Tracker." +
                     " \r\n http://www.rbcroyalbank.ca/myclaimtracker");
         // Thanks the process is now submitted and being processing. 
         // You can view the claim tracker on your online banking dashboard
