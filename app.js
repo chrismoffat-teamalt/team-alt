@@ -65,19 +65,19 @@ bot.dialog('/', [
             // This would be pulled from OLB database/datalake
             session.send("Please verify the following..." + 
                         " \r\n " + 
-                        " \r\n First Name: Team" +
-                        " \r\n Last Name: ALT" +
-                        " \r\n Client Card No: 5555 5555 5555 5555" +
-                        " \r\n Occupation: RBC" +
-                        " \r\n Job Title: Cloud Innovation Challenge Winner" +
+                        " \r\n First Name:          Team" +
+                        " \r\n Last Name:           ALT" +
+                        " \r\n Client Card No:      5555 5555 5555 5555" +
+                        " \r\n Occupation:          RBC" +
+                        " \r\n Job Title:           Cloud Innovation Challenge Winner" +
                         " \r\n Employer Contact No: 555 555 5555" +
-                        " \r\n Address: 6880 Financial Drive, Mississauga, On" +
+                        " \r\n Address:             6880 Financial Drive, Mississauga, On" +
                         " \r\n Branch Telephone No: 555 555 5555" +  
-                        " \r\n Branch Transit No: 12345");
+                        " \r\n Branch Transit No:   12345");
 
             builder.Prompts.choice(session, "Is this correct?", ["Yes", "No"]);
 
-         }, 4000); 
+         }, 5000); 
     },
     function (session, results){
         session.userData.selfemp = results.response.entity;
