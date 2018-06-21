@@ -53,33 +53,36 @@ bot.dialog('/', [
     function (session, results){
         session.userData.selfemp = results.response.entity;
 
-        session.send("Thanks for verifying your identity through RBC Online Banking."  +
+        session.send("Thank you for verifying your identity through RBC Online Banking."  +
                         " \r\n " + 
                         " \r\n One moment while I retrieve your information.");
 
-        // This would be pulled from OLB database/datalake
-        session.send("Please verify the following..." + 
-                " \r\n " + 
-                " \r\n First Name: Team" +
-                " \r\n Last Name: ALT" +
-                " \r\n Client Card No: 5555 5555 5555 5555" +
-                " \r\n Occupation: RBC" +
-                " \r\n Job Title: Cloud Innovation Challenge Winner" +
-                " \r\n Employer Contact No: 555 555 5555" +
-                " \r\n Address: 6880 Financial Drive, Mississauga, On" +
-                " \r\n Branch Telephone No: 555 555 5555" +  
-                " \r\n Branch Transit No: 12345");
+        setTimeout(function(){ 
 
-        builder.Prompts.choice(session, "Is this correct?", ["Yes", "No"]);
+            // This would be pulled from OLB database/datalake
+            session.send("Please verify the following..." + 
+            " \r\n " + 
+            " \r\n First Name: Team" +
+            " \r\n Last Name: ALT" +
+            " \r\n Client Card No: 5555 5555 5555 5555" +
+            " \r\n Occupation: RBC" +
+            " \r\n Job Title: Cloud Innovation Challenge Winner" +
+            " \r\n Employer Contact No: 555 555 5555" +
+            " \r\n Address: 6880 Financial Drive, Mississauga, On" +
+            " \r\n Branch Telephone No: 555 555 5555" +  
+            " \r\n Branch Transit No: 12345");
+
+            builder.Prompts.choice(session, "Is this correct?", ["Yes", "No"]);
+
+         }, 4000); 
     },
     function (session, results){
         session.userData.selfemp = results.response.entity;
 
-        session.send("Thanks for verifying your information."  +
+        session.send("Thank you for verifying your information."  +
                     " \r\n " + 
-                    " \r\n The application is being processed." + 
-                    " \r\n You can view the progress of your applicatin in the myClaim Tracker.");
-
+                    " \r\n Your application is being processed. You can now view the progress in the new myClaim Tracker." +
+                    " \r\n http://www.rbcroyalbank.ca/myclaimtracker");
         // Thanks the process is now submitted and being processing. 
         // You can view the claim tracker on your online banking dashboard
         // link to dashboard
