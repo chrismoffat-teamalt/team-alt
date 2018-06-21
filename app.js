@@ -38,13 +38,11 @@ bot.set('storage', tableStorage);
 
 // Send welcome when conversation with bot is started, by initiating the root dialog
 bot.on('conversationUpdate', function(message){
-	if (message.membersAdded) {
         const hello = new builder.Message()
             .address(message.address)
             .text("Hi, I am Bot. I can answer your question");
         bot.send(hello);
         bot.beginDialog(message.address, '*:/');
-    }
 });
 
 bot.dialog('/', [
