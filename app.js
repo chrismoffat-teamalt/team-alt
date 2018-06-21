@@ -65,7 +65,7 @@ bot.dialog('/', [
             // This would be pulled from OLB database/datalake
             session.send("Please verify the following..." + 
                         " \r\n " + 
-                        " \r\n First Name:          Team" +
+                        " \r\n First Name:\t\t\t    Team" +
                         " \r\n Last Name:           ALT" +
                         " \r\n Client Card No:      5555 5555 5555 5555" +
                         " \r\n Occupation:          RBC" +
