@@ -40,6 +40,7 @@ bot.dialog('/', [
     function (session) {
         session.send("Hello, Team ALT!" +
                     " \r\n " + 
+                    " \r\n " + 
                     "Thanks for taking the time to chat with RBC Creditor Insurance.");
                     builder.Prompts.choice(session, "What line of insurance are you looking to claim?", ["LoanProtecter", "BalanceProtecter", "HomeProtector", "Business Loan Insurance Plan"]);
     },
